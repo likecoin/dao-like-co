@@ -1,52 +1,185 @@
-# LikeCoin DAO Website
+# dao.like.co
 
 The official website for [LikeCoin DAO](https://dao.like.co/), the decentralized protocol powering [3ook.com](https://3ook.com) - a decentralized bookstore.
 
-## Overview
+## Features
 
-LikeCoin is a "DeBook" (Decentralized Book) protocol designed to revolutionize book publishing. The protocol empowers authors with immutable content metadata, persistent storage (IPFS/Arweave), and fairer revenue share, while readers become curators, stakeholders, and may participate in governance.
+- **Multilingual Support**: English and Traditional Chinese (繁體中文)
+- **Responsive Design**: Mobile-first design with TailwindCSS
+- **Dark Mode**: Built-in theme switching
+- **SEO Optimized**: Meta tags, Open Graph, Twitter Cards, sitemap, and RSS
+- **Static Site**: Built with Hugo for fast performance and easy deployment
 
-### Key Features
+## Tech Stack
 
-- **$LIKE Token**: ERC-20 token on Ethereum Optimism Superchain (Base)
-- **BookFi (Book Finance)**: Readers can stake $LIKE on books to endorse them
-- **Governance**: Token holders can vote on proposals directly or through delegates
-- **NFT Books**: Books are represented as NFTs with co-curation and co-monetization
+- [Hugo](https://gohugo.io/) - Static site generator
+- [TailwindCSS v4](https://tailwindcss.com/) - Utility-first CSS framework
+- [PostCSS](https://postcss.org/) - CSS processing
+
+## Prerequisites
+
+- Node.js (v18 or higher)
+- npm
+
+## Development
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run Development Server
+
+```bash
+npm run dev
+```
+
+The site will be available at http://localhost:1313/
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The built site will be in the `public/` directory.
+
+### Clean Build Files
+
+```bash
+npm run clean
+```
 
 ## Project Structure
 
 ```
 dao-like-co/
-├── index.html          # Main landing page
-├── declaration.html    # The Declaration of LikeCoin DAO
-├── whitepaper.html     # LikeCoin v3 whitepaper
-├── styles.css          # Site styling
-├── assets/             # Images and media
-│   ├── likecoin-banner.png
-│   └── likecoin-spin.gif
-└── CNAME              # Custom domain configuration
+├── archetypes/          # Content templates
+├── assets/
+│   └── css/             # CSS source files
+├── content/             # Markdown content
+│   ├── _index.md        # English homepage
+│   ├── _index.zh.md     # Chinese homepage
+│   └── declaration/     # Declaration pages
+├── layouts/             # HTML templates
+│   ├── _default/        # Default templates
+│   └── partials/        # Reusable components
+├── static/              # Static files (images, etc.)
+├── hugo.toml            # Hugo configuration
+├── postcss.config.js    # PostCSS configuration
+└── package.json         # Node dependencies
 ```
+
+## Content Management
+
+### Homepage Content
+
+Edit `content/_index.md` (English) or `content/_index.zh.md` (Chinese).
+
+The frontmatter contains all the data for the homepage sections:
+
+```yaml
+---
+title: LikeCoin - Powering 3ook.com
+punchline: Your punchline here
+whitepaper: https://...
+3ook_com:
+  title: Your AI Reading Companion
+  bio: Description...
+get_involved:
+  github: https://github.com/likecoin
+  governance: https://...
+social_media:
+  youtube: https://...
+  x: https://...
+chain:
+  token_contract: https://...
+---
+```
+
+### Declaration Page
+
+Edit `content/declaration/index.md` (English) or `content/declaration/index.zh.md` (Chinese).
+
+### Adding New Pages
+
+Create a new directory under `content/` with:
+- `index.md` for English
+- `index.zh.md` for Chinese
+
+Both files should have proper frontmatter:
+
+```yaml
+---
+title: Page Title
+date: 2026-01-20
+description: Page description for SEO
+image: /path/to/image.png
+---
+
+Your markdown content here...
+```
+
+All Markdown content is automatically styled with beautiful typography. See [MARKDOWN.md](MARKDOWN.md) for details on markdown styling.
+
+## Customization
+
+### Colors
+
+Edit `assets/css/main.css` to change the color theme:
+
+```css
+@theme {
+  --color-primary: #28646e;
+  --color-secondary: #50e3c2;
+  --color-accent: #f7931a;
+}
+```
+
+### Fonts
+
+Modify the font families in `assets/css/main.css` or use custom fonts by adding them to the `static/` directory.
 
 ## Deployment
 
-This site is deployed via GitHub Pages at [dao.like.co](https://dao.like.co/).
+### GitHub Pages
 
-## Contracts
+1. Build the site: `npm run build`
+2. The `public/` directory contains the static site
+3. Deploy the contents of `public/` to your hosting service
 
-- **Token (v3)**: [0x1EE5DD1794C28F559f94d2cc642BaE62dC3be5cf](https://basescan.org/token/0x1EE5DD1794C28F559f94d2cc642BaE62dC3be5cf)
-- **Deposit (veLIKE)**: [0xE55C2b91E688BE70e5BbcEdE3792d723b4766e2B](https://basescan.org/token/0xE55C2b91E688BE70e5BbcEdE3792d723b4766e2B)
-- **Staking**: [0x4506Ac2dD1e9A470d92a3D1656E1a99C676E1c8E](https://basescan.org/address/0x4506ac2dd1e9a470d92a3d1656e1a99c676e1c8e)
-- **DeBook**: [0xfb5cbb1973a092E6C77af02EA1E74B14870AbeC5](https://basescan.org/address/0xfb5cbb1973a092E6C77af02EA1E74B14870AbeC5)
+### Automated Deployment
 
-## Community
+The site can be deployed automatically using GitHub Actions. Create `.github/workflows/deploy.yml`:
 
-- [Documentation](https://docs.3ook.com)
-- [Governance](https://snapshot.box/#/s:likerland.eth)
-- [YouTube](https://youtube.com/likecoin)
-- [X (Twitter)](https://x.com/likecoin)
-- [Reddit](https://www.reddit.com/r/LikeCoin/)
-- [GitHub](https://github.com/LikeCoin)
+```yaml
+name: Deploy Hugo site
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+```
 
 ## License
 
-See [LICENSE](LICENSE) for details.
+GPL-3.0
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.

@@ -1,0 +1,65 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {{- $title := .Title -}}
+  {{- if not .IsHome -}}
+    {{- $title = printf "%s | %s" .Title .Site.Title -}}
+  {{- end -}}
+  <title>{{ $title }}</title>
+
+  {{- with .Description -}}
+  <meta name="description" content="{{ . }}">
+  {{- end -}}
+
+  {{- with .Params.image -}}
+  <meta property="og:image" content="{{ . | absURL }}">
+  <meta name="twitter:image" content="{{ . | absURL }}">
+  {{- end -}}
+
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{- with .Description -}}
+  <meta property="og:description" content="{{ . }}">
+  {{- end -}}
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ $title }}">
+  {{- with .Description -}}
+  <meta name="twitter:description" content="{{ . }}">
+  {{- end -}}
+
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  {{- range .Translations -}}
+  <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+  {{- end -}}
+  <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  {{ $styles := resources.Get "css/main.css" }}
+  {{ $styles = $styles | css.PostCSS }}
+  {{ if hugo.IsProduction }}
+    {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+  {{ end }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+
+  <script>
+    // Set theme before page renders to avoid flash
+    (function() {
+      const theme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (theme === 'dark' || (!theme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+</head>

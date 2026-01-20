@@ -1,0 +1,221 @@
+{{ define "main" }}
+<div class="min-h-screen">
+  {{- $isZh := eq .Language.Lang "zh" -}}
+
+  <!-- Hero Section -->
+  <section class="section bg-gradient-to-br from-primary to-primary-dark text-white">
+    <div class="container-custom text-center">
+      <img src="{{ .Params.image }}" alt="LikeCoin" class="mx-auto mb-8 rounded-lg shadow-2xl max-w-2xl w-full">
+      <h1 class="text-5xl md:text-6xl font-bold font-heading mb-6 text-balance">{{ .Title }}</h1>
+      <p class="text-xl md:text-2xl mb-8 text-secondary-light max-w-3xl mx-auto text-balance">{{ .Params.punchline }}</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="{{ .Site.Params.whitepaper }}" target="_blank" rel="noopener" class="btn btn-secondary">
+          {{ if $isZh }}閱讀白皮書{{ else }}Read Whitepaper{{ end }}
+        </a>
+        <a href="https://3ook.com" target="_blank" rel="noopener" class="btn btn-white">
+          {{ if $isZh }}訪問 3ook.com{{ else }}Visit 3ook.com{{ end }}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is LikeCoin -->
+  <section class="section bg-white dark:bg-gray-800">
+    <div class="container-custom">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="prose prose-lg max-w-none">
+            {{ .Content }}
+          </div>
+          <div class="mt-6">
+            <a href="./declaration/" class="btn btn-primary">
+              {{ if $isZh }}閱讀宣言{{ else }}Read Declaration{{ end }}
+            </a>
+          </div>
+        </div>
+        <div>
+          <img src="/assets/likecoin-spin.gif" alt="LikeCoin Animation" class="rounded-lg shadow-lg w-full max-w-md mx-auto">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3ook.com Section -->
+  {{- with index .Params "3ook_com" -}}
+  <section class="section bg-gray-100 dark:bg-gray-900">
+    <div class="container-custom">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1">
+          <div class="aspect-video rounded-lg shadow-lg flex items-center justify-center">
+            <img src="/assets/likecoin-banner.png" alt="3ook.com" class="rounded-lg shadow-lg w-full max-w-md mx-auto">
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <h2 class="text-4xl font-bold font-heading mb-6 text-primary dark:text-primary-light">{{ .title }}</h2>
+          <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">{{ .bio }}</p>
+          <a href="https://3ook.com" target="_blank" rel="noopener" class="btn btn-secondary">
+            {{ if $isZh }}探索 3ook.com{{ else }}Explore 3ook.com{{ end }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{- end -}}
+
+  <!-- Get Involved -->
+  {{- with .Site.Params.get_involved -}}
+  <section class="section bg-white dark:bg-gray-800">
+    <div class="container-custom">
+      <h2 class="text-4xl font-bold font-heading text-center mb-12 text-primary dark:text-primary-light">
+        {{ if $isZh }}參與其中{{ else }}Get Involved{{ end }}
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card p-8 text-center hover:shadow-xl transition-shadow">
+          <div class="text-5xl mb-4 text-primary dark:text-primary-light">
+            <i class="fa-solid fa-book"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">{{ if $isZh }}文件{{ else }}Documentation{{ end }}</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">
+            {{ if $isZh }}了解協議和技術細節{{ else }}Learn about the protocol and technical details{{ end }}
+          </p>
+          <a href="{{ .docs }}" target="_blank" rel="noopener" class="text-primary hover:text-primary-dark font-semibold inline-flex items-center gap-2 justify-center">
+            {{ if $isZh }}閱讀文件{{ else }}Read Docs{{ end }} <i class="fa-solid fa-arrow-right text-sm"></i>
+          </a>
+        </div>
+
+        <div class="card p-8 text-center hover:shadow-xl transition-shadow">
+          <div class="text-5xl mb-4 text-primary dark:text-primary-light">
+            <i class="fa-solid fa-landmark-dome"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">{{ if $isZh }}治理{{ else }}Governance{{ end }}</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">
+            {{ if $isZh }}參與 DAO 決策和提案{{ else }}Participate in DAO decisions and proposals{{ end }}
+          </p>
+          <a href="{{ .governance }}" target="_blank" rel="noopener" class="text-primary hover:text-primary-dark font-semibold inline-flex items-center gap-2 justify-center">
+            {{ if $isZh }}訪問治理{{ else }}Visit Governance{{ end }} <i class="fa-solid fa-arrow-right text-sm"></i>
+          </a>
+        </div>
+
+        <div class="card p-8 text-center hover:shadow-xl transition-shadow">
+          <div class="text-5xl mb-4 text-primary dark:text-primary-light">
+            <i class="fa-brands fa-github"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">GitHub</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">
+            {{ if $isZh }}貢獻代碼和開源開發{{ else }}Contribute code and open source development{{ end }}
+          </p>
+          <a href="{{ .github }}" target="_blank" rel="noopener" class="text-primary hover:text-primary-dark font-semibold inline-flex items-center gap-2 justify-center">
+            {{ if $isZh }}訪問 GitHub{{ else }}Visit GitHub{{ end }} <i class="fa-solid fa-arrow-right text-sm"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{- end -}}
+
+  <!-- Social Media -->
+  {{- with .Site.Params.social_media -}}
+  <section class="section bg-gradient-to-br from-primary-dark to-primary text-white">
+    <div class="container-custom text-center">
+      <h2 class="text-4xl font-bold font-heading mb-8">
+        {{ if $isZh }}關注我們{{ else }}Follow Us{{ end }}
+      </h2>
+      <div class="flex flex-wrap justify-center gap-6 text-primary dark:text-primary-light">
+        {{- with .youtube -}}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all transform hover:scale-110 flex items-center gap-3" title="YouTube">
+          <i class="fa-brands fa-youtube text-3xl"></i>
+          <span class="text-lg font-semibold">YouTube</span>
+        </a>
+        {{- end -}}
+        {{- with .x -}}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all transform hover:scale-110 flex items-center gap-3" title="X (Twitter)">
+          <i class="fa-brands fa-x-twitter text-3xl"></i>
+          <span class="text-lg font-semibold">X</span>
+        </a>
+        {{- end -}}
+        {{- with .reddit -}}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all transform hover:scale-110 flex items-center gap-3" title="Reddit">
+          <i class="fa-brands fa-reddit text-3xl"></i>
+          <span class="text-lg font-semibold">Reddit</span>
+        </a>
+        {{- end -}}
+        {{- with .substack -}}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all transform hover:scale-110 flex items-center gap-3" title="Substack">
+          <i class="fa-solid fa-newspaper text-3xl"></i>
+          <span class="text-lg font-semibold">Substack</span>
+        </a>
+        {{- end -}}
+        {{- with .threads -}}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all transform hover:scale-110 flex items-center gap-3" title="Threads">
+          <i class="fa-brands fa-threads text-3xl"></i>
+          <span class="text-lg font-semibold">Threads</span>
+        </a>
+        {{- end -}}
+        {{- with .instagram -}}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all transform hover:scale-110 flex items-center gap-3" title="Instagram">
+          <i class="fa-brands fa-instagram text-3xl"></i>
+          <span class="text-lg font-semibold">Instagram</span>
+        </a>
+        {{- end -}}
+        {{- with .facebook -}}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all transform hover:scale-110 flex items-center gap-3" title="Facebook">
+          <i class="fa-brands fa-facebook text-3xl"></i>
+          <span class="text-lg font-semibold">Facebook</span>
+        </a>
+        {{- end -}}
+      </div>
+    </div>
+  </section>
+  {{- end -}}
+
+  <!-- Chain Info -->
+  {{- with .Site.Params.chain -}}
+  <section class="section bg-gray-100 dark:bg-gray-900">
+    <div class="container-custom">
+      <h2 class="text-4xl font-bold font-heading text-center mb-12 text-primary dark:text-primary-light">
+        {{ if $isZh }}鏈上資訊{{ else }}Chain Information{{ end }}
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <a href="{{ .token_contract }}" target="_blank" rel="noopener" class="card p-6 hover:shadow-xl transition-shadow">
+          <h3 class="font-bold mb-2 text-primary dark:text-primary-light">
+            📑 {{ if $isZh }}代幣合約{{ else }}Token Contract{{ end }}
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 break-all">Base Network</p>
+        </a>
+
+        <a href="{{ .staking_contract }}" target="_blank" rel="noopener" class="card p-6 hover:shadow-xl transition-shadow">
+          <h3 class="font-bold mb-2 text-primary dark:text-primary-light">
+            🥩 {{ if $isZh }}質押合約{{ else }}Staking Contract{{ end }}
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 break-all">Base Network</p>
+        </a>
+
+        <a href="{{ .debook_contract }}" target="_blank" rel="noopener" class="card p-6 hover:shadow-xl transition-shadow">
+          <h3 class="font-bold mb-2 text-primary dark:text-primary-light">
+            📚 {{ if $isZh }}DeBook 合約{{ else }}DeBook Contract{{ end }}
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 break-all">Base Network</p>
+        </a>
+
+        <a href="{{ .multisig_treasury }}" target="_blank" rel="noopener" class="card p-6 hover:shadow-xl transition-shadow">
+          <h3 class="font-bold mb-2 text-primary dark:text-primary-light">
+            🧑‍🧒‍🧒 {{ if $isZh }}多簽金庫{{ else }}Multisig Treasury{{ end }}
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 break-all">Safe Wallet</p>
+        </a>
+
+        <a href="{{ $.Site.Params.like.coingecko }}" target="_blank" rel="noopener" class="card p-6 hover:shadow-xl transition-shadow">
+          <h3 class="font-bold mb-2 text-primary dark:text-primary-light">🦎 CoinGecko</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">{{ if $isZh }}價格追蹤{{ else }}Price Tracking{{ end }}</p>
+        </a>
+
+        <a href="{{ $.Site.Params.like.uniswap }}" target="_blank" rel="noopener" class="card p-6 hover:shadow-xl transition-shadow">
+          <h3 class="font-bold mb-2 text-primary dark:text-primary-light">🦄 Uniswap</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">{{ if $isZh }}去中心化交易所{{ else }}DEX Trading{{ end }}</p>
+        </a>
+      </div>
+    </div>
+  </section>
+  {{- end -}}
+</div>
+{{ end }}

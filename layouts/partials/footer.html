@@ -1,0 +1,62 @@
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="container-custom px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-white font-bold mb-4">LikeCoin DAO</h3>
+        <ul class="space-y-2">
+          <li><a href="/declaration/" class="hover:text-secondary transition-colors">{{ if eq .Language.Lang "zh" }}宣言{{ else }}Declaration{{ end }}</a></li>
+          <li><a href="{{ .Site.Params.whitepaper }}" target="_blank" rel="noopener" class="hover:text-secondary transition-colors">{{ if eq .Language.Lang "zh" }}白皮書{{ else }}Whitepaper{{ end }}</a></li>
+          <li><a href="https://3ook.com" target="_blank" rel="noopener" class="hover:text-secondary transition-colors">3ook.com</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-white font-bold mb-4">{{ if eq .Language.Lang "zh" }}社群{{ else }}Community{{ end }}</h3>
+        <ul class="space-y-2">
+          {{- with .Site.Params.get_involved -}}
+          <li><a href="{{ .github }}" target="_blank" rel="noopener" class="hover:text-secondary transition-colors inline-flex items-center gap-2"><i class="fa-brands fa-github"></i> GitHub</a></li>
+          <li><a href="{{ .governance }}" target="_blank" rel="noopener" class="hover:text-secondary transition-colors inline-flex items-center gap-2"><i class="fa-solid fa-landmark-dome"></i> {{ if eq $.Language.Lang "zh" }}治理{{ else }}Governance{{ end }}</a></li>
+          <li><a href="{{ .docs }}" target="_blank" rel="noopener" class="hover:text-secondary transition-colors inline-flex items-center gap-2"><i class="fa-solid fa-book"></i> {{ if eq $.Language.Lang "zh" }}文件{{ else }}Documentation{{ end }}</a></li>
+          {{- end -}}
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-white font-bold mb-4">{{ if eq .Language.Lang "zh" }}社交媒體{{ else }}Social Media{{ end }}</h3>
+        <ul class="space-y-2">
+          {{- with .Site.Params.social_media -}}
+          <li><a href="{{ .x }}" target="_blank" rel="noopener" class="hover:text-secondary transition-colors inline-flex items-center gap-2"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a></li>
+          <li><a href="{{ .youtube }}" target="_blank" rel="noopener" class="hover:text-secondary transition-colors inline-flex items-center gap-2"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
+          <li><a href="{{ .reddit }}" target="_blank" rel="noopener" class="hover:text-secondary transition-colors inline-flex items-center gap-2"><i class="fa-brands fa-reddit"></i> Reddit</a></li>
+          <li><a href="{{ .substack }}" target="_blank" rel="noopener" class="hover:text-secondary transition-colors inline-flex items-center gap-2"><i class="fa-solid fa-newspaper"></i> Substack</a></li>
+          {{- end -}}
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-white font-bold mb-4">{{ if eq .Language.Lang "zh" }}鏈上資訊{{ else }}Chain Info{{ end }}</h3>
+        <ul class="space-y-2">
+          {{- with .Site.Params.chain -}}
+          <li><a href="{{ .token_contract }}" target="_blank" rel="noopener" class="hover:text-secondary transition-colors text-sm inline-flex items-center gap-2"><i class="fa-solid fa-file-contract"></i> {{ if eq $.Language.Lang "zh" }}代幣合約{{ else }}Token Contract{{ end }}</a></li>
+          <li><a href="{{ .staking_contract }}" target="_blank" rel="noopener" class="hover:text-secondary transition-colors text-sm inline-flex items-center gap-2"><i class="fa-solid fa-coins"></i> {{ if eq $.Language.Lang "zh" }}質押合約{{ else }}Staking Contract{{ end }}</a></li>
+          <li><a href="{{ .multisig_treasury }}" target="_blank" rel="noopener" class="hover:text-secondary transition-colors text-sm inline-flex items-center gap-2"><i class="fa-solid fa-vault"></i> {{ if eq $.Language.Lang "zh" }}多簽金庫{{ else }}Treasury{{ end }}</a></li>
+          {{- end -}}
+          {{- with .Site.Params.like -}}
+          <li><a href="{{ .uniswap }}" target="_blank" rel="noopener" class="hover:text-secondary transition-colors inline-flex items-center gap-2"><i class="fa-solid fa-arrow-right-arrow-left"></i> Uniswap</a></li>
+          {{- end -}}
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+      <p>&copy; {{ now.Year }} LikeCoin DAO. {{ if eq .Language.Lang "zh" }}保留所有權利{{ else }}All rights reserved{{ end }}.</p>
+      {{- with .OutputFormats.Get "RSS" -}}
+      <p class="mt-2">
+        <a href="{{ .Permalink }}" target="_blank" class="hover:text-secondary transition-colors inline-flex items-center gap-2 justify-center">
+          <i class="fa-solid fa-rss"></i> {{ if eq $.Language.Lang "zh" }}訂閱 RSS{{ else }}Subscribe via RSS{{ end }}
+        </a>
+      </p>
+      {{- end -}}
+    </div>
+  </div>
+</footer>

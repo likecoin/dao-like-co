@@ -1,0 +1,51 @@
+{{ define "main" }}
+<article class="section bg-white dark:bg-gray-800 min-h-screen">
+  <div class="container-custom max-w-4xl">
+    {{- if .Params.image -}}
+    <div class="mb-8">
+      <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full rounded-lg shadow-lg">
+    </div>
+    {{- end -}}
+    
+    <header class="mb-8 pb-8 border-b border-gray-200 dark:border-gray-700">
+      <h1 class="text-5xl font-bold font-heading mb-4 text-primary dark:text-primary-light">{{ .Title }}</h1>
+      
+      {{- with .Description -}}
+      <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">{{ . }}</p>
+      {{- end -}}
+      
+      <div class="flex flex-wrap gap-4 text-sm text-gray-500 dark:text-gray-400">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
+        
+        {{- if ne .Date .Lastmod -}}
+        <span>•</span>
+        <time datetime="{{ .Lastmod.Format "2006-01-02" }}">
+          {{ if eq .Language.Lang "zh" }}更新於{{ else }}Updated{{ end }} {{ .Lastmod.Format "January 2, 2006" }}
+        </time>
+        {{- end -}}
+      </div>
+    </header>
+    
+    <div class="prose prose-lg max-w-none">
+      {{ .Content }}
+    </div>
+    
+    {{- if .IsTranslated -}}
+    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+      <h3 class="text-lg font-semibold mb-4">
+        {{ if eq .Language.Lang "zh" }}其他語言{{ else }}Other Languages{{ end }}
+      </h3>
+      <div class="flex gap-4">
+        {{- range .Translations -}}
+        <a href="{{ .Permalink }}" class="btn btn-secondary">
+          {{ .Language.LanguageName }}
+        </a>
+        {{- end -}}
+      </div>
+    </div>
+    {{- end -}}
+  </div>
+</article>
+{{ end }}

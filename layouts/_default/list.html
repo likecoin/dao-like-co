@@ -1,0 +1,45 @@
+{{ define "main" }}
+<div class="section bg-white dark:bg-gray-800 min-h-screen">
+  <div class="container-custom">
+    <header class="mb-12 text-center">
+      <h1 class="text-5xl font-bold font-heading mb-4 text-primary dark:text-primary-light">{{ .Title }}</h1>
+      {{- with .Description -}}
+      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">{{ . }}</p>
+      {{- end -}}
+    </header>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{- range .Pages -}}
+      <article class="card hover:shadow-xl transition-shadow">
+        {{- if .Params.image -}}
+        <a href="{{ .Permalink }}">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full aspect-video object-cover" loading="lazy">
+        </a>
+        {{- end -}}
+        
+        <div class="p-6">
+          <h2 class="text-2xl font-bold mb-3">
+            <a href="{{ .Permalink }}" class="text-primary dark:text-primary-light hover:text-primary-dark transition-colors">
+              {{ .Title }}
+            </a>
+          </h2>
+          
+          {{- with .Description -}}
+          <p class="text-gray-600 dark:text-gray-400 mb-4">{{ . }}</p>
+          {{- end -}}
+          
+          <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">
+              {{ .Date.Format "Jan 2, 2006" }}
+            </time>
+            <a href="{{ .Permalink }}" class="text-primary hover:text-primary-dark font-semibold">
+              {{ if eq $.Language.Lang "zh" }}閱讀更多 →{{ else }}Read more →{{ end }}
+            </a>
+          </div>
+        </div>
+      </article>
+      {{- end -}}
+    </div>
+  </div>
+</div>
+{{ end }}
