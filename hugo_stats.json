@@ -53,7 +53,6 @@
       "dark:bg-gray-900",
       "dark:border-gray-700",
       "dark:hover:bg-gray-800",
-      "dark:prose-invert",
       "dark:text-gray-100",
       "dark:text-gray-300",
       "dark:text-gray-400",
@@ -169,29 +168,9 @@
       "z-50"
     ],
     "ids": [
-      "community-governance",
-      "core-principles",
-      "decentralization",
-      "join-us",
-      "likecoin-declaration",
-      "likecoin-宣言",
-      "our-mission",
-      "our-vision",
-      "ownership",
       "theme-toggle",
       "theme-toggle-dark-icon",
-      "theme-toggle-light-icon",
-      "transparency",
-      "what-is-likecoin",
-      "什麼是-likecoin",
-      "加入我們",
-      "去中心化",
-      "我們的使命",
-      "我們的願景",
-      "所有權",
-      "核心原則",
-      "社群治理",
-      "透明度"
+      "theme-toggle-light-icon"
     ]
   }
 }

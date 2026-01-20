@@ -37,8 +37,6 @@ chain:
   tech_subdao_multisig: https://app.safe.global/home?safe=base:0x07f7355F73af2Ea47CDf0DE97853776bd833D67b
 ---
 
-## 什麼是 LikeCoin
-
 LikeCoin 是一個去中心化協議，驅動數位出版的未來。建立在區塊鏈技術之上，它讓創作者能夠擁有、貨幣化和分發他們的內容，無需中介。
 
 LikeCoin DAO 管理該協議，確保社群驅動的開發和整個生態系統的決策。

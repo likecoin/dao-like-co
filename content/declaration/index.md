@@ -5,36 +5,24 @@ description: The founding declaration of LikeCoin - our vision for a decentraliz
 image: /assets/likecoin-banner.png
 ---
 
-# LikeCoin Declaration
+【The Declaration of LikeCoin DAO】- 2025.02.08
 
-## Our Vision
+To build a DAO through Likes, supported by coins.
 
-LikeCoin represents a fundamental shift in how we think about content, creativity, and ownership in the digital age.
+"Like" is “讚”; Coin is “托”; "DAO" is “邦”.
 
-## Core Principles
+LikeCoin DAO is founded on the infrastructure and practice of publishing, with the greater ambition of fostering a new, universal cultural paradigm.
 
-### Decentralization
-We believe in removing intermediaries between creators and their audiences, enabling direct relationships and fair compensation.
+The meaning of a "Like" is affection, appreciation, support, recognition, connection, sharing, and also value exchange.
 
-### Ownership
-Creators should own their work and control how it's distributed, monetized, and preserved.
+We use LikeCoin as our token to transform "Likes" into a medium for value storage and exchange, realizing a cultural vision through material technology.
 
-### Transparency
-Blockchain technology ensures transparent, immutable records of content ownership and transactions.
+The value we speak of is the value of people, not the value of commodities; the exchange we speak of is reciprocal and equal between people—gifts and rewards, not speculation or consumption.
 
-### Community Governance
-The LikeCoin DAO empowers the community to shape the protocol's future through democratic participation.
+Our vision is: to use "Likes" to record history, preserve culture, encourage autonomy, protect freedom, and revolutionize publishing. We provide support and incentives, eliminate barriers and obstacles, allowing creators to be directly rewarded and readers to freely access information.
 
-## Our Mission
+We are committed to building a user-friendly, low-barrier technical entry point and welcome all who share the same philosophy to join.
 
-To build a sustainable ecosystem where:
-- Creators are fairly compensated for their work
-- Readers have direct access to quality content
-- Publishing is accessible to all
-- Community governance drives innovation
+We are committed to making LikeLand transcend the limitations of time, place, and person, becoming a widespread technological application and cultural practice that is open, free, and shared.
 
-## Join Us
-
-Be part of the movement to reshape digital publishing. Participate in governance, contribute to development, or simply support creators on the platform.
-
-Together, we're building the future of content.
+We are not just "us," but also "you" and "they." We are a plurality of people, a community of free association and shared value. As long as you are willing to Like, you are a Liker - citizen of the LikeCoin DAO.

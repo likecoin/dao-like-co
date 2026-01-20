@@ -37,8 +37,6 @@ chain:
   tech_subdao_multisig: https://app.safe.global/home?safe=base:0x07f7355F73af2Ea47CDf0DE97853776bd833D67b
 ---
 
-## What is LikeCoin
-
 LikeCoin is a decentralized protocol that powers the future of digital publishing. Built on blockchain technology, it enables creators to own, monetize, and distribute their content without intermediaries.
 
 The LikeCoin DAO governs the protocol, ensuring community-driven development and decision-making for the entire ecosystem.

@@ -121,6 +121,8 @@ image: /path/to/image.png
 Your markdown content here...
 ```
 
+All Markdown content is automatically styled with beautiful typography. See [MARKDOWN.md](MARKDOWN.md) for details on markdown styling.
+
 ## Customization
 
 ### Colors
