@@ -1,0 +1,67 @@
+baseURL = 'https://dao.like.co/'
+title = 'LikeCoin DAO'
+languageCode = 'en-US'
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+enableGitInfo = true
+
+[params]
+description = "The official website for LikeCoin DAO, the decentralized protocol powering 3ook.com - a decentralized bookstore."
+
+[languages]
+  [languages.en]
+    languageCode = 'en-US'
+    languageName = 'English'
+    contentDir = 'content'
+    weight = 1
+
+  [languages.zh]
+    languageCode = 'zh-Hant'
+    languageName = '繁體中文'
+    contentDir = 'content'
+    weight = 2
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+[imaging]
+  resampleFilter = "CatmullRom"
+  quality = 85
+  anchor = "center"
+
+  [[imaging.sizes]]
+    name = "card"
+    sizes = [480, 960]
+
+  [[imaging.sizes]]
+    name = "hero"
+    sizes = [960, 1440, 1920]
+
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = 'assets/notwatching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = '(postcss|tailwind)\.config\.js'
+    target = 'css'
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    disableWatch = true
+    source = 'hugo_stats.json'
+    target = 'assets/notwatching/hugo_stats.json'

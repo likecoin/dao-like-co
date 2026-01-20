@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@source "hugo_stats.json";
+
+@theme {
+  --color-primary: #28646e;
+  --color-primary-light: #3a8a97;
+  --color-primary-dark: #1a4a52;
+  --color-secondary: #50e3c2;
+  --color-secondary-light: #7eefd4;
+  --color-secondary-dark: #2fc9a8;
+  --color-accent: #f7931a;
+  --color-accent-light: #ffb454;
+  --color-accent-dark: #d97706;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

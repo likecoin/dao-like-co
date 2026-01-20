@@ -1,0 +1,59 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {{- $title := .Title -}}
+  {{- if not .IsHome -}}
+    {{- $title = printf "%s | %s" .Title .Site.Title -}}
+  {{- end -}}
+  <title>{{ $title }}</title>
+
+  {{- with .Description -}}
+  <meta name="description" content="{{ . }}">
+  {{- end -}}
+
+  {{- with .Params.image -}}
+  <meta property="og:image" content="{{ . | absURL }}">
+  <meta name="twitter:image" content="{{ . | absURL }}">
+  {{- end -}}
+
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{- with .Description -}}
+  <meta property="og:description" content="{{ . }}">
+  {{- end -}}
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ $title }}">
+  {{- with .Description -}}
+  <meta name="twitter:description" content="{{ . }}">
+  {{- end -}}
+
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  {{- range .Translations -}}
+  <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+  {{- end -}}
+  <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+
+  <link rel="icon" href="/favicon.ico">
+
+  <!--{{ $styles := resources.Get "css/main.css" }}
+  {{ $styles = $styles | css.PostCSS }}-->
+  <!--{{ if hugo.IsProduction }}
+    {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+  {{ end }}-->
+
+  {{ with (templates.Defer (dict "key" "global")) }}
+    {{ partial "css.html" . }}
+  {{ end }}
+
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+</head>
