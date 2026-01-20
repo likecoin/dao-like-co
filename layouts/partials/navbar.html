@@ -7,25 +7,33 @@
           <span class="font-bold text-xl text-primary dark:text-primary-light">LikeCoin</span>
         </a>
       </div>
-      
-      <div class="flex items-center space-x-6">
+
+      <div class="flex items-center space-x-2">
         <a href="https://3ook.com" target="_blank" rel="noopener" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
           <span class="font-semibold text-gray-700 dark:text-gray-300">3ook.com</span>
         </a>
-        
-        <div class="flex items-center space-x-2">
-          {{- if .IsTranslated -}}
-            {{- range .Translations -}}
-              <a href="{{ .Permalink }}" class="px-3 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800 text-sm">
-                {{ .Language.LanguageName }}
-              </a>
+
+        <!-- Language Dropdown -->
+        <div class="relative">
+          <button id="language-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2" aria-label="Change language">
+            <i class="fa-solid fa-globe text-xl"></i>
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+          </button>
+
+          <div id="language-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-50">
+            <a href="{{ .Permalink }}" class="block px-4 py-2 text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-primary dark:text-primary-light">
+              {{ .Language.LanguageName }}
+            </a>
+            {{- if .IsTranslated -}}
+              {{- range .Translations -}}
+                <a href="{{ .Permalink }}" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300">
+                  {{ .Language.LanguageName }}
+                </a>
+              {{- end -}}
             {{- end -}}
-          {{- end -}}
-          <a href="{{ .Permalink }}" class="px-3 py-1 rounded bg-primary text-white text-sm">
-            {{ .Language.LanguageName }}
-          </a>
+          </div>
         </div>
-        
+
         <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle theme">
           <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -40,6 +48,7 @@
 </nav>
 
 <script>
+  // Theme toggle
   const themeToggleBtn = document.getElementById('theme-toggle');
   const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
   const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -72,4 +81,29 @@
       }
     }
   });
+
+  // Language dropdown toggle
+  const languageToggle = document.getElementById('language-toggle');
+  const languageDropdown = document.getElementById('language-dropdown');
+
+  if (languageToggle) {
+    languageToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      languageDropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!languageToggle.contains(e.target) && !languageDropdown.contains(e.target)) {
+        languageDropdown.classList.add('hidden');
+      }
+    });
+
+    // Close dropdown when pressing Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        languageDropdown.classList.add('hidden');
+      }
+    });
+  }
 </script>
