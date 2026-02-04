@@ -72,13 +72,6 @@ tech_subdao_multisig = "https://app.safe.global/home?safe=base:0x07f7355F73af2Ea
   quality = 85
   anchor = "center"
 
-  [[imaging.sizes]]
-    name = "card"
-    sizes = [480, 960]
-
-  [[imaging.sizes]]
-    name = "hero"
-    sizes = [960, 1440, 1920]
 
 [build]
   [build.buildStats]

@@ -1,6 +1,5 @@
 {{ define "main" }}
 <div class="min-h-screen">
-  {{- $isZh := eq .Language.Lang "zh" -}}
 
   <!-- Hero Section -->
   <section class="section bg-gradient-to-br from-primary to-primary-dark text-white">
@@ -9,10 +8,10 @@
       <p class="text-xl md:text-2xl mb-8 text-secondary-light max-w-3xl mx-auto text-balance">{{ .Params.punchline }}</p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="{{ .Site.Params.whitepaper }}" target="_blank" rel="noopener" class="btn btn-secondary">
-          {{ if $isZh }}閱讀白皮書{{ else }}Read Whitepaper{{ end }}
+          {{ T "read_whitepaper" }}
         </a>
         <a href="https://3ook.com" target="_blank" rel="noopener" class="btn btn-white">
-          {{ if $isZh }}訪問 3ook.com{{ else }}Visit 3ook.com{{ end }}
+          {{ T "visit_3ook" }}
         </a>
       </div>
     </div>
@@ -28,7 +27,7 @@
           </div>
           <div class="mt-6">
             <a href="./declaration/" class="btn btn-primary">
-              {{ if $isZh }}閱讀宣言{{ else }}Read Declaration{{ end }}
+              {{ T "read_declaration" }}
             </a>
           </div>
         </div>
@@ -53,7 +52,7 @@
           <h2 class="text-4xl font-bold font-heading mb-6 text-primary dark:text-primary-light">{{ .title }}</h2>
           <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">{{ .bio }}</p>
           <a href="https://3ook.com" target="_blank" rel="noopener" class="btn btn-secondary">
-            {{ if $isZh }}探索 3ook.com{{ else }}Explore 3ook.com{{ end }}
+            {{ T "explore_3ook" }}
           </a>
         </div>
       </div>
@@ -66,19 +65,19 @@
   <section class="section bg-white dark:bg-gray-800">
     <div class="container-custom">
       <h2 class="text-4xl font-bold font-heading text-center mb-12 text-primary dark:text-primary-light">
-        {{ if $isZh }}參與其中{{ else }}Get Involved{{ end }}
+        {{ T "get_involved" }}
       </h2>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="card p-8 text-center hover:shadow-xl transition-shadow">
           <div class="text-5xl mb-4 text-primary dark:text-primary-light">
             <i class="fa-solid fa-book"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">{{ if $isZh }}文件{{ else }}Documentation{{ end }}</h3>
+          <h3 class="text-xl font-bold mb-3">{{ T "documentation" }}</h3>
           <p class="text-gray-600 dark:text-gray-400 mb-4">
-            {{ if $isZh }}了解協議和技術細節{{ else }}Learn about the protocol and technical details{{ end }}
+            {{ T "documentation_desc" }}
           </p>
           <a href="{{ .docs }}" target="_blank" rel="noopener" class="text-primary hover:text-primary-dark font-semibold inline-flex items-center gap-2 justify-center">
-            {{ if $isZh }}閱讀文件{{ else }}Read Docs{{ end }} <i class="fa-solid fa-arrow-right text-sm"></i>
+            {{ T "read_docs" }} <i class="fa-solid fa-arrow-right text-sm"></i>
           </a>
         </div>
 
@@ -86,12 +85,12 @@
           <div class="text-5xl mb-4 text-primary dark:text-primary-light">
             <i class="fa-solid fa-landmark-dome"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">{{ if $isZh }}治理{{ else }}Governance{{ end }}</h3>
+          <h3 class="text-xl font-bold mb-3">{{ T "governance" }}</h3>
           <p class="text-gray-600 dark:text-gray-400 mb-4">
-            {{ if $isZh }}參與 DAO 決策和提案{{ else }}Participate in DAO decisions and proposals{{ end }}
+            {{ T "governance_desc" }}
           </p>
           <a href="{{ .governance }}" target="_blank" rel="noopener" class="text-primary hover:text-primary-dark font-semibold inline-flex items-center gap-2 justify-center">
-            {{ if $isZh }}訪問治理{{ else }}Visit Governance{{ end }} <i class="fa-solid fa-arrow-right text-sm"></i>
+            {{ T "visit_governance" }} <i class="fa-solid fa-arrow-right text-sm"></i>
           </a>
         </div>
 
@@ -101,10 +100,10 @@
           </div>
           <h3 class="text-xl font-bold mb-3">GitHub</h3>
           <p class="text-gray-600 dark:text-gray-400 mb-4">
-            {{ if $isZh }}貢獻代碼和開源開發{{ else }}Contribute code and open source development{{ end }}
+            {{ T "contribute_desc" }}
           </p>
           <a href="{{ .github }}" target="_blank" rel="noopener" class="text-primary hover:text-primary-dark font-semibold inline-flex items-center gap-2 justify-center">
-            {{ if $isZh }}訪問 GitHub{{ else }}Visit GitHub{{ end }} <i class="fa-solid fa-arrow-right text-sm"></i>
+            {{ T "visit_github" }} <i class="fa-solid fa-arrow-right text-sm"></i>
           </a>
         </div>
       </div>
@@ -117,7 +116,7 @@
   <section class="section bg-gradient-to-br from-primary-dark to-primary text-white">
     <div class="container-custom text-center">
       <h2 class="text-4xl font-bold font-heading mb-8">
-        {{ if $isZh }}關注我們{{ else }}Follow Us{{ end }}
+        {{ T "follow_us" }}
       </h2>
       <div class="flex flex-wrap justify-center gap-6 text-primary dark:text-primary-light">
         {{- with .youtube -}}
@@ -172,45 +171,45 @@
   <section class="section bg-gray-100 dark:bg-gray-900">
     <div class="container-custom">
       <h2 class="text-4xl font-bold font-heading text-center mb-12 text-primary dark:text-primary-light">
-        {{ if $isZh }}鏈上資訊{{ else }}Chain Information{{ end }}
+        {{ T "chain_info" }}
       </h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
         <a href="{{ .token_contract }}" target="_blank" rel="noopener" class="card p-6 hover:shadow-xl transition-shadow">
           <h3 class="font-bold mb-2 text-primary dark:text-primary-light">
-            📑 {{ if $isZh }}代幣合約{{ else }}Token Contract{{ end }}
+            📑 {{ T "token_contract" }}
           </h3>
           <p class="text-sm text-gray-600 dark:text-gray-400 break-all">Base Network</p>
         </a>
 
         <a href="{{ .staking_contract }}" target="_blank" rel="noopener" class="card p-6 hover:shadow-xl transition-shadow">
           <h3 class="font-bold mb-2 text-primary dark:text-primary-light">
-            🥩 {{ if $isZh }}質押合約{{ else }}Staking Contract{{ end }}
+            🥩 {{ T "staking_contract" }}
           </h3>
           <p class="text-sm text-gray-600 dark:text-gray-400 break-all">Base Network</p>
         </a>
 
         <a href="{{ .debook_contract }}" target="_blank" rel="noopener" class="card p-6 hover:shadow-xl transition-shadow">
           <h3 class="font-bold mb-2 text-primary dark:text-primary-light">
-            📚 {{ if $isZh }}DeBook 合約{{ else }}DeBook Contract{{ end }}
+            📚 {{ T "debook_contract" }}
           </h3>
           <p class="text-sm text-gray-600 dark:text-gray-400 break-all">Base Network</p>
         </a>
 
         <a href="{{ .multisig_treasury }}" target="_blank" rel="noopener" class="card p-6 hover:shadow-xl transition-shadow">
           <h3 class="font-bold mb-2 text-primary dark:text-primary-light">
-            🧑‍🧒‍🧒 {{ if $isZh }}多簽金庫{{ else }}Multisig Treasury{{ end }}
+            🧑‍🧒‍🧒 {{ T "multisig_treasury" }}
           </h3>
           <p class="text-sm text-gray-600 dark:text-gray-400 break-all">Safe Wallet</p>
         </a>
 
         <a href="{{ $.Site.Params.like.coingecko }}" target="_blank" rel="noopener" class="card p-6 hover:shadow-xl transition-shadow">
           <h3 class="font-bold mb-2 text-primary dark:text-primary-light">🦎 CoinGecko</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">{{ if $isZh }}價格追蹤{{ else }}Price Tracking{{ end }}</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">{{ T "price_tracking" }}</p>
         </a>
 
         <a href="{{ $.Site.Params.like.uniswap }}" target="_blank" rel="noopener" class="card p-6 hover:shadow-xl transition-shadow">
           <h3 class="font-bold mb-2 text-primary dark:text-primary-light">🦄 Uniswap</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">{{ if $isZh }}去中心化交易所{{ else }}DEX Trading{{ end }}</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">{{ T "dex_trading" }}</p>
         </a>
       </div>
     </div>
