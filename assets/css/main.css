@@ -468,6 +468,12 @@ html.dark .prose :where(tbody tr):not(:where([class~="not-prose"] *)) {
   line-height: 1.5;
 }
 
+/* Section heading anchor links */
+h2 > a[href^="#"] {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* Utility Classes */
 .text-balance {
   text-wrap: balance;

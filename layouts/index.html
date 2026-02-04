@@ -2,7 +2,7 @@
 <div class="min-h-screen">
 
   <!-- Hero Section -->
-  <section class="section bg-gradient-to-br from-primary to-primary-dark text-white">
+  <section id="hero" class="section bg-gradient-to-br from-primary to-primary-dark text-white">
     <div class="container-custom text-center">
       <img src="{{ .Params.image }}" alt="LikeCoin" class="mx-auto mb-8 rounded-lg shadow-2xl max-w-2xl w-full">
       <p class="text-xl md:text-2xl mb-8 text-secondary-light max-w-3xl mx-auto text-balance">{{ .Params.punchline }}</p>
@@ -18,7 +18,7 @@
   </section>
 
   <!-- What is LikeCoin -->
-  <section class="section bg-white dark:bg-gray-800">
+  <section id="about" class="section bg-white dark:bg-gray-800">
     <div class="container-custom">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
@@ -40,7 +40,7 @@
 
   <!-- 3ook.com Section -->
   {{- with index .Params "3ook_com" -}}
-  <section class="section bg-brand-bg-alt dark:bg-gray-900">
+  <section id="3ook" class="section bg-brand-bg-alt dark:bg-gray-900">
     <div class="container-custom">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="order-2 md:order-1">
@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="order-1 md:order-2">
-          <h2 class="text-4xl font-bold font-heading mb-6 text-primary dark:text-primary-light">{{ .title }}</h2>
+          <h2 class="text-4xl font-bold font-heading mb-6 text-primary dark:text-primary-light"><a href="#3ook" class="hover:underline">{{ .title }}</a></h2>
           <p class="text-lg text-brand-text dark:text-gray-300 mb-6">{{ .bio }}</p>
           <a href="https://3ook.com" target="_blank" rel="noopener" class="btn btn-secondary">
             {{ T "explore_3ook" }}
@@ -62,10 +62,10 @@
 
   <!-- Get Involved -->
   {{- with .Site.Params.get_involved -}}
-  <section class="section bg-white dark:bg-gray-800">
+  <section id="get-involved" class="section bg-white dark:bg-gray-800">
     <div class="container-custom">
       <h2 class="text-4xl font-bold font-heading text-center mb-12 text-primary dark:text-primary-light">
-        {{ T "get_involved" }}
+        <a href="#get-involved" class="hover:underline">{{ T "get_involved" }}</a>
       </h2>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="card p-8 text-center hover:shadow-xl transition-shadow">
@@ -113,10 +113,10 @@
 
   <!-- Social Media -->
   {{- with .Site.Params.social_media -}}
-  <section class="section bg-gradient-to-br from-primary-dark to-primary text-white">
+  <section id="social" class="section bg-gradient-to-br from-primary-dark to-primary text-white">
     <div class="container-custom text-center">
       <h2 class="text-4xl font-bold font-heading mb-8">
-        {{ T "follow_us" }}
+        <a href="#social" class="hover:underline">{{ T "follow_us" }}</a>
       </h2>
       <div class="flex flex-wrap justify-center gap-6 text-primary dark:text-primary-light">
         {{- with .youtube -}}
@@ -168,10 +168,10 @@
 
   <!-- Chain Info -->
   {{- with .Site.Params.chain -}}
-  <section class="section bg-brand-bg-alt dark:bg-gray-900">
+  <section id="chain-info" class="section bg-brand-bg-alt dark:bg-gray-900">
     <div class="container-custom">
       <h2 class="text-4xl font-bold font-heading text-center mb-12 text-primary dark:text-primary-light">
-        {{ T "chain_info" }}
+        <a href="#chain-info" class="hover:underline">{{ T "chain_info" }}</a>
       </h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
         <a href="{{ .token_contract }}" target="_blank" rel="noopener" class="card p-6 hover:shadow-xl transition-shadow">

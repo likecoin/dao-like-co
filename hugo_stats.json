@@ -110,6 +110,7 @@
       "hover:shadow-xl",
       "hover:text-primary-dark",
       "hover:text-secondary",
+      "hover:underline",
       "inline-flex",
       "items-center",
       "justify-between",
@@ -196,8 +197,14 @@
       "z-50"
     ],
     "ids": [
+      "3ook",
+      "about",
+      "chain-info",
+      "get-involved",
+      "hero",
       "language-dropdown",
       "language-toggle",
+      "social",
       "theme-toggle",
       "theme-toggle-dark-icon",
       "theme-toggle-light-icon",
