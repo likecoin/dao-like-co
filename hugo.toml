@@ -8,7 +8,11 @@ enableGitInfo = true
 
 [params]
 description = "The official website for LikeCoin DAO, the decentralized protocol powering 3ook.com - a decentralized bookstore."
+images = ["/assets/likecoin-banner.png"]
 whitepaper = "https://3ook.com/store/0x3ddc416c403449bc2a9ae873bff0b687993cd662"
+
+[params.social]
+twitter = "likecoin"
 
 [params.like]
 uniswap = "https://app.uniswap.org/explore/tokens/base/0x1ee5dd1794c28f559f94d2cc642bae62dc3be5cf"
@@ -66,6 +70,15 @@ tech_subdao_multisig = "https://app.safe.global/home?safe=base:0x07f7355F73af2Ea
 [sitemap]
   changefreq = "weekly"
   priority = 0.5
+
+[services]
+  [services.googleAnalytics]
+    id = 'G-G9WM2V5EW6'
+
+[privacy]
+  [privacy.googleAnalytics]
+    disable = false
+    respectDoNotTrack = true
 
 [imaging]
   resampleFilter = "CatmullRom"
