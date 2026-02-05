@@ -23,6 +23,6 @@ Our vision is: to use "Likes" to record history, preserve culture, encourage aut
 
 We are committed to building a user-friendly, low-barrier technical entry point and welcome all who share the same philosophy to join.
 
-We are committed to making LikeLand transcend the limitations of time, place, and person, becoming a widespread technological application and cultural practice that is open, free, and shared.
+We are committed to making LikeCoin DAO transcend the limitations of time, place, and person, becoming a widespread technological application and cultural practice that is open, free, and shared.
 
 We are not just "us," but also "you" and "they." We are a plurality of people, a community of free association and shared value. As long as you are willing to Like, you are a Liker - citizen of the LikeCoin DAO.
