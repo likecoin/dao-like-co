@@ -1,12 +1,12 @@
 ---
 title: LikeCoin - 驅動 3ook.com
 date: 2026-01-20
-description: LikeCoin 是驅動 3ook.com 的去中心化圖書協議。加入我們的社群，參與出版的去中心化未來。
+description: LikeCoin 是驅動 3ook.com 的分散式出版協議。加入我們的社群，共同保育文化，守護歷史。
 image: /assets/likecoin-banner.png
-punchline: LikeCoin 是 3ook.com 底層的分散式出版協議。
+punchline: LikeCoin：驅動 3ook.com 的分散式出版協議
 3ook_com:
   title: 3ook.com
-  bio: 第３代電子書店，滙聚讀者、作者、書店與出版社，共同策展、發布與銷售多元書籍及刊物，運用 AI 及 Web3 技術，保育文化，守護歷史。
+  bio: 3ook.com 第３代電子書店，能讀、能聽、能擁有。滙聚讀者、作者與書店，共同策展、發布與銷售多元書籍及刊物，運用 AI 及 Web3，保育文化，守護歷史。
 ---
 
 ## 什麼是 LikeCoin？
