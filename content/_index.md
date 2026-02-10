@@ -6,7 +6,7 @@ image: /assets/likecoin-banner.png
 punchline: LikeCoin is the DeBook protocol powering 3ook.com, a decentralized bookstore.
 3ook_com:
   title: 3ook.com
-  bio: 3rd-gen bookstore ecosystem bringing together readers, authors, bookstores, and publishers. By co-curating, publishing, and distributing a diverse range of books and periodicals, we leverage AI and Web3 technologies to preserve culture and safeguard history.
+  bio: 3ook.com — Read, Listen, Own. The 3rd-gen bookstore ecosystem where authors and readers co-create a decentralized home for books and periodicals. By merging AI-enhanced experiences with Web3 ownership, we safeguard the freedom to read and the integrity of our shared history.
 ---
 
 ## What is LikeCoin
