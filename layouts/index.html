@@ -119,16 +119,10 @@
         <a href="#social" class="hover:underline">{{ T "follow_us" }}</a>
       </h2>
       <div class="flex flex-wrap justify-center gap-6 text-primary dark:text-primary-light">
-        {{- with .youtube -}}
-        <a href="{{ . }}" target="_blank" rel="noopener" class="p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all transform hover:scale-110 flex items-center gap-3" title="YouTube">
-          <i class="fa-brands fa-youtube text-3xl"></i>
-          <span class="text-lg font-semibold">YouTube</span>
-        </a>
-        {{- end -}}
-        {{- with .x -}}
-        <a href="{{ . }}" target="_blank" rel="noopener" class="p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all transform hover:scale-110 flex items-center gap-3" title="X (Twitter)">
-          <i class="fa-brands fa-x-twitter text-3xl"></i>
-          <span class="text-lg font-semibold">X</span>
+        {{- with .substack -}}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all transform hover:scale-110 flex items-center gap-3" title="Substack">
+          <i class="fa-solid fa-newspaper text-3xl"></i>
+          <span class="text-lg font-semibold">Substack</span>
         </a>
         {{- end -}}
         {{- with .reddit -}}
@@ -137,10 +131,16 @@
           <span class="text-lg font-semibold">Reddit</span>
         </a>
         {{- end -}}
-        {{- with .substack -}}
-        <a href="{{ . }}" target="_blank" rel="noopener" class="p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all transform hover:scale-110 flex items-center gap-3" title="Substack">
-          <i class="fa-solid fa-newspaper text-3xl"></i>
-          <span class="text-lg font-semibold">Substack</span>
+        {{- with .x -}}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all transform hover:scale-110 flex items-center gap-3" title="X (Twitter)">
+          <i class="fa-brands fa-x-twitter text-3xl"></i>
+          <span class="text-lg font-semibold">X</span>
+        </a>
+        {{- end -}}
+        {{- with .youtube -}}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="p-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all transform hover:scale-110 flex items-center gap-3" title="YouTube">
+          <i class="fa-brands fa-youtube text-3xl"></i>
+          <span class="text-lg font-semibold">YouTube</span>
         </a>
         {{- end -}}
         {{- with .threads -}}
