@@ -21,7 +21,7 @@ npm run clean        # Remove public/ and resources/
 npm run css:build    # Standalone CSS build via Tailwind CLI
 ```
 
-> **Note:** Always use `npm run build` or `npm run dev` — never call `hugo` directly, as Hugo is provided by `hugo-bin` and lives in `node_modules/.bin/hugo`.
+> **Note:** Always use `npm run build` / `npm run dev`, or run `node_modules/.bin/hugo` directly — do not rely on a system-installed `hugo` binary.
 
 ## Repository Structure
 
@@ -87,11 +87,12 @@ The Markdown body of `_index.md` renders as the "What is LikeCoin" section.
 
 ## Site-Wide Configuration (`hugo.toml`)
 
-All shared URLs and external links are stored in `hugo.toml` under `[params]` sub-sections — **never hardcoded in templates**:
+All shared URLs and external links should be stored in `hugo.toml` under `[params]` sub-sections where possible — avoid hardcoding in templates (note: some existing templates still hardcode a few URLs such as `https://3ook.com`).
 
 | Section | Keys |
 |---|---|
 | `[params]` | `whitepaper`, `description`, `images` |
+| `[params.social]` | `twitter` |
 | `[params.like]` | `uniswap`, `coingecko`, `coinmarketcap` |
 | `[params.get_involved]` | `github`, `governance`, `docs` |
 | `[params.social_media]` | `youtube`, `x`, `reddit`, `github`, `substack`, `threads`, `instagram`, `facebook`, `mail`, `website` |
@@ -126,7 +127,7 @@ Utility classes defined in `main.css`:
 
 ## SEO & Head
 
-- Page `<title>`: `{{ .Title }}` for homepage; `{{ .Title }} | LikeCoin` for all other pages
+- Page `<title>`: `{{ .Title }}` for homepage; `{{ .Title }} | {{ .Site.Title }}` for all other pages
 - `meta description` from frontmatter `description`
 - OpenGraph/Twitter Card via Hugo built-in partials (`opengraph.html`, `twitter_cards.html`)
 - `canonical` set to each language's own permalink
@@ -154,7 +155,7 @@ Utility classes defined in `main.css`:
 
 1. **Hugo is not globally installed** — always use `npm run dev` / `npm run build`, or `node_modules/.bin/hugo` directly.
 2. **TailwindCSS v4** — uses `@import "tailwindcss"` and `@theme {}` (not the v3 `tailwind.config.js` approach). Config is in `postcss.config.js`.
-3. **`3ook_com` frontmatter key** — the homepage section key contains a dot/number prefix (`3ook_com`); accessed in templates as `index .Params "3ook_com"`.
+3. **`3ook_com` frontmatter key** — the homepage section key starts with a number (`3ook_com`); accessed in templates as `index .Params "3ook_com"`.
 4. **Content language files** — Chinese files use `.zh.md` suffix in the same directory, not a separate `zh/` folder.
 5. **Hugo build stats** — `hugo_stats.json` is generated at build time and mounted back into assets for TailwindCSS class scanning (see `[build.cachebusters]` in `hugo.toml`).
 6. **FontAwesome** — loaded from CDN (not npm). Use `fa-solid`, `fa-brands` class prefixes.
